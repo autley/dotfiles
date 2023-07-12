@@ -1,0 +1,7 @@
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Ensure '$HOME/.config' exists
+      file:
+        path: '{{ lookup('env', 'HOME') }}/.config'
+        state: directory
